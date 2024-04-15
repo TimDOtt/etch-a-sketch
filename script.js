@@ -1,8 +1,15 @@
 const container = document.querySelector('.container');
-const row = document.querySelectorAll('.row');
-const col = document.querySelectorAll('.col');
+const userInput = document.querySelector('input');
+
+userInput.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        createGrid(event.target.value);
+        userInput.value = '';
+    }
+})
 
 function createGrid(num) {
+    container.innerHTML = '';
    for (i = 0; i < num; i++) {
     const row = document.createElement('div');
     container.appendChild(row);
@@ -22,4 +29,4 @@ function color(e) {
     e.target.style.backgroundColor = currentColor;
 }
 
-createGrid(16);
+// createGrid(16);

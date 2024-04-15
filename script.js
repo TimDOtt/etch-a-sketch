@@ -3,9 +3,9 @@ const userInput = document.querySelector('input');
 
 userInput.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
-        
-        if (event.target.value < 100){
-            createGrid(event.target.value);
+       const value = parseInt(event.target.value);
+        if (Number.isInteger(value) === true && value < 100) {
+            createGrid(value);
         }
         userInput.value = '';
     }

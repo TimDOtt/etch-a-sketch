@@ -8,6 +8,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
 }
 h1 {
     font-size: 50px;
@@ -28,10 +29,10 @@ input {
     height: 500px;
     justify-content: center;
     align-items: center;
+    border: 1px solid black;
 }
 
-.container div {
+.col,
+.row {
     border: 1px solid black;
-    width: 10px;
-    height: 10px;
 }

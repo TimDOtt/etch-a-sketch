@@ -3,7 +3,10 @@ const userInput = document.querySelector('input');
 
 userInput.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
-        createGrid(event.target.value);
+        
+        if (event.target.value < 100){
+            createGrid(event.target.value);
+        }
         userInput.value = '';
     }
 })
@@ -25,7 +28,7 @@ function createGrid(num) {
 }
 
 function color(e) {
-    let currentColor = 'green';
+    let currentColor = 'purple';
     e.target.style.backgroundColor = currentColor;
 }
 

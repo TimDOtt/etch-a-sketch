@@ -5,7 +5,7 @@ let containerWidth = getComputedStyle(container).width;
 userInput.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
        const value = parseInt(event.target.value);
-        if (Number.isInteger(value) === true && value < 100) {
+        if (Number.isInteger(value) === true && value < 65) {
             createGrid(value);
         }
         userInput.value = '';
@@ -17,7 +17,7 @@ userInput.addEventListener('keydown', function(event) {
 function createGrid(num) {
     container.innerHTML = '';
     let squareSize = parseInt(containerWidth) / parseInt(num) - 2;
-   for (i = 0; i < num; i++) {
+   for (i = 0; i <= num; i++) {
     const row = document.createElement('div');
     row.className = 'row';
     row.style.width = squareSize + 'px';

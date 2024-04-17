@@ -16,7 +16,7 @@ userInput.addEventListener('keydown', function(event) {
 
 function createGrid(num) {
     container.innerHTML = '';
-    let squareSize = parseInt(containerWidth) / parseInt(num) - 2;
+    let squareSize = parseInt(containerWidth) / parseInt(num);
    for (i = 1; i <= num; i++) {
     const row = document.createElement('div');
     row.className = 'row';
@@ -32,9 +32,17 @@ function createGrid(num) {
     }
    }
 }
+function generateRandomColor(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
 
 function color(e) {
-    let currentColor = 'purple';
+    const r = generateRandomColor(0, 255);
+    console.log(r);
+    const g = generateRandomColor(0, 255);
+    const b = generateRandomColor(0, 255);
+    let currentColor = 'rgb(' + r.toString() + ',' + g.toString() + ',' + b.toString() + ')';
     e.target.style.backgroundColor = currentColor;
 }
 createGrid(16);

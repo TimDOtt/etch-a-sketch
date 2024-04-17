@@ -4,10 +4,6 @@ const rainbow = document.querySelector('#rainbow');
 const clear = document.querySelector('#clearGrid')
 let containerWidth = getComputedStyle(container).width;
 
-createGrid(16);
-
-
-
 userInput.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
        const value = parseInt(event.target.value);
@@ -18,11 +14,7 @@ userInput.addEventListener('keydown', function(event) {
     }
 })
 
-
-
-
 function createGrid(num) {
-
     container.innerHTML = '';
     let squareSize = parseInt(containerWidth) / parseInt(num);
    for (i = 1; i <= num; i++) {
@@ -39,24 +31,21 @@ function createGrid(num) {
     }
    }
     solidColor();
-
-    rainbow.addEventListener('change', function () {
-        if (this.checked) {
-            rainbowColor();
-        }else {
-            solidColor();
-        }
-    });
+    checkbox();
+      
+    rainbow.addEventListener('change', checkbox);
     clear.addEventListener('click', function clearGrid() {
         createGrid(num);
-        if (rainbow.checked) {
-            rainbowColor();
-        }else {
-            solidColor();
-        }  
     })  
 }
 
+function checkbox() {
+    if (rainbow.checked) {
+        rainbowColor();
+    }else {
+        solidColor();
+    }
+}
 function solidColor() {
     const square = document.querySelectorAll('.col');
     square.forEach((square) => {
@@ -78,7 +67,8 @@ function rainbowColor() {
     }); 
 
 }
-
 function generateRandomNumber(min, max) {
     return Math.random() * (max - min) + min;
 }
+
+createGrid(16);

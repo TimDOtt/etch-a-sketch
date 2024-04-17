@@ -1,9 +1,12 @@
 const container = document.querySelector('.container');
 const userInput = document.querySelector('input');
 const rainbow = document.querySelector('#rainbow');
+const clear = document.querySelector('#clearGrid')
 let containerWidth = getComputedStyle(container).width;
 
 createGrid(16);
+
+
 
 userInput.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
@@ -14,6 +17,7 @@ userInput.addEventListener('keydown', function(event) {
         userInput.value = '';
     }
 })
+
 
 
 
@@ -42,7 +46,15 @@ function createGrid(num) {
         }else {
             solidColor();
         }
-    });  
+    });
+    clear.addEventListener('click', function clearGrid() {
+        createGrid(num);
+        if (rainbow.checked) {
+            rainbowColor();
+        }else {
+            solidColor();
+        }  
+    })  
 }
 
 function solidColor() {

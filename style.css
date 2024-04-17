@@ -22,10 +22,18 @@ h1 {
     text-align: center;
 }
 .options {
+    display: flex;
+    flex-direction: column;
     margin-right: auto;
     margin-left: 10px;
     align-self: flex-start;
     font-size: 25px;
+}
+#clearGrid {
+    margin-top: 20px;
+    width: 150px;
+    height: 40px;
+    align-self: center;
 }
 
 .container{
